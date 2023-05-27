@@ -1,22 +1,17 @@
+import React from 'react';
+import FunctionalProps from './functions';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  
-  
- let firstClick = true;
-
-  function s1(firstClick){
-    firstClick = true;
-    this.setState(
-
-    );
-      return firstClick;
-  }
-
   return (
-    <div className="App">
-     
+    <div className="FunctionalProps">
+      <FunctionalProps
+        image={logo}
+        name="ِa nice one"
+        price={9.99}
+        cat="Category"
+      />
     </div>
   );
 }
