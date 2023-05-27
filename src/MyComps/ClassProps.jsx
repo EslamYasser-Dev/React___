@@ -18,4 +18,12 @@ class ClassProps extends Component {
   }
 }
 
+
+/* to use it type :
+* <ClassProps
+    course1= "C fundementals",
+    course2= "RHCSA"
+    childElement = "What ever you want"
+    ></ClassProps>
+*/
 export default ClassProps;
