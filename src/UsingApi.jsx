@@ -4,12 +4,12 @@ import React, {useEffect, useState } from 'react'
 
 
 const UsingApi = () =>{
-        const [data, setData] = useState([]); 
+        const [data, setData] = useState([]);  
 
         useEffect(() =>{
-                const fetchData = async () => {
+                const fetchData = async () => {  //fetch is a GET Method returns a Promise
                     const responce = await fetch('https://jsonplaceholder.typicode.com/posts'); //wait for fetch
-                    const jsonData = await responce.json(); //converts this to json format
+                    const jsonData = await responce.json(); //parse the responce by json()
                     setData(jsonData);
             }
             fetchData();
