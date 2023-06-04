@@ -1,12 +1,12 @@
 // import './App.css';
 import Card from './Card';
 import React from 'react';
-import SignIn from './SignIn';
+import SignUp from './SignUp';
 
 function App() {
   return (
     <div>
-      <SignIn/>
+      <SignUp/>
       <Card/>
     </div>
   );
