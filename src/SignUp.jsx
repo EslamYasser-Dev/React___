@@ -1,74 +1,66 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
 
 class SignUp extends Component {
-
-
-  //this Constructor initialize these values
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       name: '',
-      email:'',
-      age:'',
-      password: ''
-    }
+      email: '',
+      age: '',
+      password: '',
+    };
   }
 
-  HandleNameChange=(event) => {
+  handleNameChange = (event) => {
     this.setState({
-        name:event.state.value,
-    })
-  }
+      name: event.target.value,
+    });
+  };
 
-  HandleEmailChange=(event) => {
+  handleEmailChange = (event) => {
     this.setState({
-        email:event.state.value,
-    })
-  }
-  
+      email: event.target.value,
+    });
+  };
 
-  HandleAgeChange=(event) => {
+  handleAgeChange = (event) => {
     this.setState({
-        age:event.state.value,
-    })
-  }
+      age: event.target.value,
+    });
+  };
 
-  HandlePassChange=(event) => {
+  handlePassChange = (event) => {
     this.setState({
-        password:event.state.value,
-    })
-  }
+      password: event.target.value,
+    });
+  };
 
+  handleFormSubmit = (e) => {
+    sessionStorage.setItem(this.state.name, true);
+    // Use window.location.href instead of window.location to navigate to a new page
+    window.location.href = 'aroute';
+    e.preventDefault();
+  };
 
-
-  HandleFormChange=(event) => {
-    this.setState({
-        password:event.state.value,
-    })
-  }
-
-
-  handleFormSubmit= (e) => {
-    sessionStorage.setItem(this.state.name, true) //to him login for this session (userWho are login, Islogin(true or false))
-    window.location('aroute') // this move you to another page ex:home.html
-    e.preventDefault()
-}
-
-render(){
-    const {name,email,age,password} = this.state
+  render() {
+    const { name, email, age, password } = this.state;
     return (
-        <div>
-            <form  onSubmit={this.handleFormSubmit}>
-                <input type='text' value={name}  onChange={this.HandleNameChange}/>
-                <input type='email' value={email} onChange={this.HandleEmailChange}/>
-                <input type='number' value={age} onChange={this.HandleAgeChange}/>
-                <input type='password' value={password} onChange={this.HandlePassChange}/>
-            </form>
-            <button type='submit'>SignUp</button>
-        </div>
-    )
-}
+      <div>
+        <form onSubmit={this.handleFormSubmit}>
+          <label>UserName</label>
+          <input type="text" value={name} onChange={this.handleNameChange} />
+          <label>Email</label>
+          <input type="email" value={email} onChange={this.handleEmailChange} />
+          <label>Age</label>
+          <input type="number" value={age} onChange={this.handleAgeChange} />
+          <label>Password</label>
+          <input type="password" value={password} onChange={this.handlePassChange} />
+          <br />
+          <button type="submit">SignUp</button>
+        </form>
+      </div>
+    );
+  }
 }
 
-export default SignUp
+export default SignUp;
