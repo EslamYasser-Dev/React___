@@ -36,9 +36,9 @@ class SignUp extends Component {
   };
 
   handleFormSubmit = (e) => {
-    sessionStorage.setItem(this.state.name, true);
-    // Use window.location.href instead of window.location to navigate to a new page
-    window.location.href = 'aroute';
+    sessionStorage.setItem(this.state.name, true); //  عشان اتاكد انو لوجن طول السشن دي 
+    
+    window.location.href = 'الصفحة اللي ممكن نكون عايزين نروح لها ';
     e.preventDefault();
   };
 
@@ -58,6 +58,7 @@ class SignUp extends Component {
           <br />
           <button type="submit">SignUp</button>
         </form>
+        <br/>
       </div>
     );
   }
