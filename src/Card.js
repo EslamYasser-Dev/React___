@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import './styles/card.css';
 
-
+import products from './ProductData'
 
 class Card extends Component {
 
@@ -10,32 +9,46 @@ class Card extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      amount: '1',
+      amount: 1,
+      img:products.img,
       name: 'placeHolder',
-       price: 'placeHolder',
+      price: '542',
       category: 'placeHolder'
     }
   }
 
 
-  HandleCounter(opreation) {
+  // HandleCounter(opreation) {
 
-    //ensure no zeros
-    if (this.amount !== 0 && opreation === true) {
-      this.setState({
-        amount: this.amount+1
-      })
-    }
-      else if (this.amount !== 0 && opreation === false) {
-        this.setState({
-          amount: this.amount-1
-        })
-      }
-     else {
-      this.setState({
-        amount: 1
-      })
-    }
+  //   //ensure no zeros then add 
+  //   if (this.amount !== 0 && opreation === true) {
+  //     this.setState({
+  //       amount: this.amount+1
+  //     })
+  //   }
+  //     else if (this.amount !== 0 && opreation === false) {
+  //       this.setState({
+  //         amount: this.amount-1
+  //       })
+  //     }
+  //    else {
+  //     this.setState({
+  //       amount: 1
+  //     })
+  //   }
+  // }
+
+
+  HandleCounterInc = () => {
+    this.setState({
+      amount: this.state.amount + 1
+    })
+  }
+
+  HandleCounterDec = () => {
+    this.setState({
+      amount: this.state.amount - 1
+    })
   }
 
 
@@ -44,18 +57,21 @@ class Card extends Component {
 
     return (
       <div className="flexDIV">
-        {/* <img src={img} alt="ProductPIC" className="image" /> */}
-
-        <div className="ProductTEXT">
-          <p>{this.state.name}</p>
-          <span>{this.state.price}</span>
-          <span>{this.state.category}</span>
+        <div style={{"color": "red", "backgroundColor": "#CCC9E7","width":"60vh","height":"70vh","margin":"1.5vh","borderRadius":"1vh"}}>
+          <figure><img src={this.state.img} alt="imag" /></figure>
+          <div className="card-body">
+            <h2 className="card-title">{this.state.name}</h2>
+            <p>{(this.state.price)+"$"}</p>
+            <div className="card-actions justify-end">
+            </div>
+          </div>
         </div>
-
         <div className="Counter">
-          <button onClick={()=> this.HandleCounter(true)} >+</button>
+          <button onClick={() => this.HandleCounterInc()} > + </button>
           <span>{this.state.amount}</span>
-          <button onClick={()=> this.HandleCounter(false)} >-</button>
+          <button onClick={() => this.HandleCounterDec()} > - </button>
+          <button className="btn btn-primary">Add to cart</button>
+
         </div>
       </div>
     );
