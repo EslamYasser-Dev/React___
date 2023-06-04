@@ -9,21 +9,37 @@ class SignIn extends Component {
     super(props)
     this.state = {
       name: '',
+      email:'',
+      age:'',
       password: ''
     }
   }
 
-  HandleTextChange=(event) => {
+  HandleNameChange=(event) => {
     this.setState({
-        username:event.state.value,
+        name:event.state.value,
     })
   }
 
-  HandlePWDChange=(event) => {
+  HandleEmailChange=(event) => {
+    this.setState({
+        email:event.state.value,
+    })
+  }
+  
+
+  HandleAgeChange=(event) => {
+    this.setState({
+        age:event.state.value,
+    })
+  }
+
+  HandlePassChange=(event) => {
     this.setState({
         password:event.state.value,
     })
   }
+
 
 
   HandleFormChange=(event) => {
@@ -40,14 +56,16 @@ class SignIn extends Component {
 }
 
 render(){
-    const {name,password} = this.state
+    const {name,email,age,password} = this.state
     return (
         <div>
             <form>
-                <input type='text' value={name} />
-                <input type='password' value={password}/>
+                <input type='text' value={name}  onChange={this.HandleNameChange}/>
+                <input type='email' value={email} onChange={this.HandleEmailChange}/>
+                <input type='number' value={age} onChange={this.HandleAgeChange}/>
+                <input type='password' value={password} onChange={this.HandlePassChange}/>
             </form>
-            <button type='submit'>SignIn</button>
+            <button type='submit'>SignUp</button>
         </div>
     )
 }
