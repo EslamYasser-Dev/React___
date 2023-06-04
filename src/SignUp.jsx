@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 
-class SignIn extends Component {
+class SignUp extends Component {
 
 
   //this Constructor initialize these values
@@ -59,7 +59,7 @@ render(){
     const {name,email,age,password} = this.state
     return (
         <div>
-            <form>
+            <form  onSubmit={this.handleFormSubmit}>
                 <input type='text' value={name}  onChange={this.HandleNameChange}/>
                 <input type='email' value={email} onChange={this.HandleEmailChange}/>
                 <input type='number' value={age} onChange={this.HandleAgeChange}/>
@@ -71,4 +71,4 @@ render(){
 }
 }
 
-export default SignIn
+export default SignUp
